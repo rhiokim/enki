@@ -1,13 +1,14 @@
 /* global chrome */
-const getCurrentTab = (callback) => {
-  chrome.tabs.getSelected(null, (tab) => {
-    callback(null, tab)
-  })
-}
+console.log('load content script')
 
-getCurrentTab((err, tab) => {
-  if (err) {
-    throw (new Error('error'))
+chrome.runtime.onMessage.addListener((msg, _, sendResponse) => {
+  console.log('Got message from background page: ' + msg)
+})
+
+document.addEventListener('mouseup', event => {
+  var sel = window.getSelection().toString()
+
+  if (sel.length) {
+    chrome.runtime.sendMessage({data: sel}, response => {})
   }
-  console.log(tab)
 })
