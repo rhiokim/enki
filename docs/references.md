@@ -6,3 +6,6 @@
 
 * How to handle contedxt menu?
   - https://developer.chrome.com/extensions/samples (Context Menus Sample)
+
+* Work with IndexDB
+  - https://developer.ibm.com/clouddataservices/2016/05/11/chrome-extensions-pouchdb/
